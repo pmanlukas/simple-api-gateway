@@ -7,16 +7,18 @@ services:
     - name: octocat-route
       paths:
         - /octocat
+
   - name: hello-service
-    url: http://localhost:5000
+    url: http://host.docker.internal:5000
     host: 127.0.0.1
     routes:
     - name: hello-route
       paths:
         - /hello
       methods: [GET]
+
   - name: zen-service
-    url: http://localhost:5000
+    url: http://host.docker.internal:5000
     host: 127.0.0.1
     routes:
     - name: zen-route
