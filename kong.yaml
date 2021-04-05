@@ -1,32 +1,24 @@
 _format_version: "2.1"
 
 services:
-  - host: localhost
-    name: hello-service
-    port: 5000
-    protocol: http
-    routes:
-    - name: hello
-      paths:
-      - /hello
-      strip_path: true
-
-  - host: github
-    name: zen-service
-    port: 5000
-    protocol: http
-    routes:
-    - name: zen
-      paths:
-      - /zen
-      strip_path: true
-
   - name: octocat-service
     url: https://api.github.com
     routes:
     - name: octocat-route
       paths:
         - /octocat
+  - name: hello-service
+    url: http://localhost:5000
+    routes:
+    - name: hello-route
+      paths:
+        - /hello
+  - name: zen-service
+    url: http://localhost:5000
+    routes:
+    - name: zen-route
+      paths:
+        - /zen
 
 plugins:
   - name: rate-limiting
