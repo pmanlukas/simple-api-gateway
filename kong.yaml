@@ -1,24 +1,32 @@
 _format_version: "2.1"
 
 services:
-  - name: gist-service
+  - host: localhost
+    name: hello_service
+    port: 5000
+    protocol: http
+    routes:
+    - name: hello
+      paths:
+      - /hello
+      strip_path: true
+
+  - host: github
+    name: zen_service
+    port: 5000
+    protocol: http
+    routes:
+    - name: zen
+      paths:
+      - /zen
+      strip_path: true
+
+  - name: octocat-service
     url: https://api.github.com
     routes:
-    - name: gists-route
+    - name: octocat-route
       paths:
-        - /gists
-    - name: hello-service
-      url: http://localhost:5000
-      routes:
-        - name: hello-route
-          paths:
-            - /hello
-    - name: zen-service
-      url: http://localhost:5000
-      routes:
-        - name: hello-route
-          paths:
-            - /zen
+        - /octocat
 
 plugins:
   - name: rate-limiting
