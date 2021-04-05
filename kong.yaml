@@ -2,7 +2,7 @@ _format_version: "2.1"
 
 services:
   - host: localhost
-    name: hello_service
+    name: hello-service
     port: 5000
     protocol: http
     routes:
@@ -12,7 +12,7 @@ services:
       strip_path: true
 
   - host: github
-    name: zen_service
+    name: zen-service
     port: 5000
     protocol: http
     routes:
