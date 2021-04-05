@@ -13,7 +13,7 @@ services:
       - name: hello-route
         paths:
           - /hello
-  - name: hello-service
+  - name: zen-service
     url: http://host.docker.internal:5000
     routes:
       - name: zen-route
